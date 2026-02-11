@@ -200,12 +200,25 @@ export default function Contact() {
             gap: 2rem;
           }
           
+          /* Center headers inside cards for better mobile alignment */
+          h2 {
+            text-align: center;
+          }
+          
           .page-header {
             margin: 3rem 0 3rem;
           }
           
           .social-links {
             flex-direction: column;
+            gap: 1rem; /* Maintain gap */
+          }
+          
+          /* Make buttons full width and centered */
+          .social-links a {
+            width: 100%;
+            text-align: center;
+            display: block; /* Ensure it takes full width */
           }
           
           /* Prevent zoom on iOS inputs */
