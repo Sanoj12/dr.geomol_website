@@ -228,6 +228,13 @@ export default function Contact() {
             font-size: 16px;
           }
         }
+        
+        /* Remove border box styling as requested */
+        .card {
+          border: none !important;
+          box-shadow: none !important;
+          background: transparent !important;
+        }
       `}</style>
     </div>
   );
