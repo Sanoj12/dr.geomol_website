@@ -10,7 +10,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-content">
           <div className="hero-text">
-            <h1 className="title">Geomol George</h1>
+            <h1 className="title">Dr.Geomol George</h1>
             <p className="subtitle">
               Assistant Professor | Researcher in <span className="highlight">AI</span> & <span className="highlight">Underwater Object Detection</span>
             </p>
