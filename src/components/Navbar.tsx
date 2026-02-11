@@ -12,6 +12,10 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
@@ -23,7 +27,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 nav-container">
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px' }}>
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" onClick={closeMenu}>
           Geomol George
         </Link>
 
@@ -31,19 +35,36 @@ export default function Navbar() {
           {isOpen ? '✕' : '☰'}
         </div>
 
-        <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+        {/* Desktop Nav */}
+        <ul className="nav-links desktop-nav">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={pathname === link.href ? 'active-link' : ''}
-                onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             </li>
           ))}
         </ul>
+
+        {/* Mobile Nav Overlay */}
+        <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+          <ul className="mobile-nav-links">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={pathname === link.href ? 'active-link' : ''}
+                  onClick={closeMenu}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <style jsx>{`
@@ -59,20 +80,24 @@ export default function Navbar() {
           font-weight: 700;
           color: var(--primary);
           letter-spacing: -0.02em;
+          z-index: 60; /* Ensure logo is clickable above mobile menu if needed, or consistent */
+          position: relative;
         }
-        .nav-links {
+        
+        /* Desktop Navigation */
+        .desktop-nav {
           display: flex;
           gap: 2.5rem;
           list-style: none;
         }
-        .nav-links li a {
+        .desktop-nav li a {
            font-size: 0.95rem;
            font-weight: 500;
            color: var(--secondary);
            text-transform: uppercase;
            letter-spacing: 0.05em;
         }
-        .nav-links li a:hover {
+        .desktop-nav li a:hover {
           color: var(--primary);
         }
         .active-link {
@@ -80,33 +105,73 @@ export default function Navbar() {
           border-bottom: 2px solid var(--accent);
           padding-bottom: 4px;
         }
+
         .hamburger {
           display: none;
           font-size: 1.5rem;
           color: var(--primary);
           cursor: pointer;
+          z-index: 60; /* Keep hamburger above the mobile menu */
+          position: relative;
         }
         
+        /* Mobile Navigation */
+        .mobile-nav {
+          display: none; /* Hidden by default on desktop */
+        }
+
         @media (max-width: 768px) {
-          .nav-links {
-            position: absolute;
-            top: 79px; /* adjust for border */
-            left: 0;
-            width: 100%;
-            flex-direction: column;
-            background: #fff;
-            padding: 2rem;
-            gap: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            /* Reset clip-path for cleaner slide/fade or keep simple display toggle logic */
-            display: none; 
+          .desktop-nav {
+            display: none;
           }
-          .nav-links.active {
-            display: flex;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-          }
+          
           .hamburger {
             display: block;
+          }
+
+          .mobile-nav {
+            display: flex; /* Make it exist in DOM for transition, but control visibility */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 55; /* Below hamburger and logo */
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            opacity: 0; /* extra precaution */
+            visibility: hidden;
+          }
+
+          .mobile-nav.open {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+          }
+
+          .mobile-nav-links li a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+            display: block; /* Ensure large hit area */
+            padding: 10px;
+          }
+          
+          .mobile-nav-links li a:hover, .mobile-nav-links li a.active-link {
+            color: var(--primary);
           }
         }
       `}</style>

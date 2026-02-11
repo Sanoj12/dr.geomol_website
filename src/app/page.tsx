@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -30,9 +31,18 @@ export default function Home() {
               </a>
             </div>
           </div>
-          {/* Decorative Element instead of glowing orb */}
-          <div className="hero-decoration">
-            <div className="decorative-square"></div>
+
+          <div className="hero-image-container">
+            <div className="image-wrapper">
+              <Image
+                src="/profile.jpg"
+                alt="Geomol George"
+                width={350}
+                height={350}
+                className="profile-image"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -89,10 +99,11 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 4rem;
         }
 
         .hero-text {
-          max-width: 600px;
+          flex: 1;
           z-index: 2;
         }
 
@@ -127,6 +138,33 @@ export default function Home() {
           margin-bottom: 2rem;
           font-style: italic;
         }
+        
+        .hero-image-container {
+           flex: 1;
+           display: flex;
+           justify-content: center;
+           position: relative;
+        }
+        
+        .image-wrapper {
+           position: relative;
+           padding: 10px;
+           background: #fff;
+           border: 1px solid var(--border);
+           border-radius: 12px;
+           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+           transition: transform 0.3s ease;
+        }
+        
+        .image-wrapper:hover {
+           transform: scale(1.02);
+        }
+        
+        /* Next/Image styling handled via class or global CSS generally, but specific overrides here */
+        :global(.profile-image) {
+           border-radius: 8px;
+           object-fit: cover;
+        }
 
         .section-spacing {
           margin-bottom: 6rem;
@@ -156,24 +194,43 @@ export default function Home() {
           font-size: 0.95rem;
           color: var(--secondary);
         }
-        
-        .decorative-square {
-          width: 300px;
-          height: 300px;
-          border: 20px solid rgba(15, 23, 42, 0.03);
-          transform: rotate(45deg);
-          position: absolute;
-          right: 10%;
-          top: 20%;
-          z-index: 1;
-        }
 
         @media (max-width: 768px) {
           .hero { padding: 6rem 0 4rem; }
-          .hero-content { flex-direction: column; text-align: center; }
+          .hero-content { 
+            flex-direction: column-reverse; 
+            text-align: center; 
+            gap: 2rem; 
+            align-items: center; /* Ensure items are centered in column layout */
+          }
           .title { font-size: 2.5rem; }
           .cta-group { justify-content: center; }
-          .decorative-square { display: none; }
+          
+          /* Remove frame styles completely on mobile */
+          .image-wrapper { 
+            transform: none !important; 
+            max-width: 280px; /* Slightly increase for visibility */
+            width: 100%;
+            padding: 0 !important;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          /* Ensure no hover effects on mobile */
+          .image-wrapper:hover {
+            transform: none !important;
+          }
+          
+          /* Optional: Add a simple rounded style instead of the heavy frame if desired, or keep it clean */
+          :global(.profile-image) {
+             border-radius: 50%; /* Make circular on mobile if preferred, or keep rounded rect */
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Add subtle shadow directly to image */
+          }
         }
       `}</style>
     </div>
