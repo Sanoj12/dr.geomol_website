@@ -173,6 +173,7 @@ export default function Contact() {
         .contact-form input,
         .contact-form textarea {
           width: 100%;
+          max-width: 100%;
           padding: 0.75rem;
           border-radius: 4px;
           background: #f8fafc;
