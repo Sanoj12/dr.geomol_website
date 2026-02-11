@@ -197,6 +197,21 @@ export default function Contact() {
         @media (max-width: 768px) {
           .contact-container {
             grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          
+          .page-header {
+            margin: 3rem 0 3rem;
+          }
+          
+          .social-links {
+            flex-direction: column;
+          }
+          
+          /* Prevent zoom on iOS inputs */
+          .contact-form input,
+          .contact-form textarea {
+            font-size: 16px;
           }
         }
       `}</style>
