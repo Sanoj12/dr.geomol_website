@@ -1,84 +1,18 @@
 "use client";
 
 export default function Development() {
-    const fdps = [
-        {
-            title: "Machine Learning for Signal Processing: Applications and Research Challenges",
-            organizer: "Kumaraguru College of Technology",
-            date: "May 15-20, 2023",
-            type: "One-Week FDP"
-        },
-        {
-            title: "Recent Advances in Electronics and Communication Engineering – An Approach Through AI & ML",
-            organizer: "Vignan’s Nirula Institute",
-            date: "August 21-26, 2023",
-            type: "One-Week National Level FDP"
-        },
-        {
-            title: "Research Advances in Computational Intelligence",
-            organizer: "Saveetha School of Engineering",
-            date: "December 19-23, 2022",
-            type: "5-day Course"
-        },
-        {
-            title: "Emerging Technologies",
-            organizer: "Vidyavardhaka College of Engineering",
-            date: "December 11-15, 2023",
-            type: "FDP"
-        },
-        {
-            title: "Research Methodology and Developing Research Skills",
-            organizer: "Shridevi Institute",
-            date: "February 26 to March 1, 2024",
-            type: "FDP"
-        },
-        {
-            title: "Image, Audio, & Video Processing for Pattern Recognition",
-            organizer: "IEEE SPS Seasonal School",
-            date: "June 23-28, 2022",
-            type: "Seasonal School"
-        },
-        {
-            title: "Deep Learning and Its Applications",
-            organizer: "Kalpataru Institute",
-            date: "March 6-10, 2023",
-            type: "Five-Day Workshop"
-        },
-        {
-            title: "LaTeX for Technical Documentation",
-            organizer: "Saveetha School of Engineering",
-            date: "September 26-30, 2022",
-            type: "Five-Day Workshop"
-        },
-        {
-            title: "Applications of Artificial Intelligence using Machine Learning and Deep Learning",
-            organizer: "Anna University",
-            date: "August 28-29, 2023",
-            type: "Two-Day Workshop"
-        },
-        {
-            title: "Signal Processing, Artificial Intelligence, and Machine Learning in Biomedical Engineering",
-            organizer: "Saveetha School of Engineering",
-            date: "November 16-18, 2022",
-            type: "FDP"
-        },
-        {
-            title: "Case Studies in Artificial Intelligence and Machine Learning",
-            organizer: "PSGR Krishnammal College for Women",
-            date: "November 17, 2022",
-            type: "International Workshop"
-        }
-    ];
+
+
 
     const courses = [
-        { title: "Deep Learning Internship", provider: "Pantech Prolabs India Pvt Ltd", date: "June 2023" },
-        { title: "Multi-Class Semantic Image Segmentation with Keras in Python", provider: "Udemy", date: "May 2023" },
-        { title: "U-Net: Image Segmentation with U-Net", provider: "Udemy", date: "May 2023" },
-        { title: "Computer Vision and Image Processing", provider: "IIT Guwahati (NPTEL)", score: "57%" },
-        { title: "Deep Learning for Visual Computing", provider: "IIT Kharagpur (NPTEL)", score: "68% Elite Score" },
-        { title: "Introduction to Machine Learning", provider: "IIT Madras (NPTEL)", score: "50%" },
-        { title: "Research Methodology", provider: "IIT Madras (NPTEL)", score: "62%" },
-        { title: "NPTEL BELIEVER Award", provider: "NPTEL", date: "April 2022" },
+        { title: "Deep Learning Internship", provider: "Pantech Prolabs India Pvt Ltd", date: "June 2023", link: "certificates/courses.pdf" },
+        { title: "Multi-Class Semantic Image Segmentation with Keras in Python", provider: "Udemy", date: "May 2023", link: "certificates/Multi-Class Semantic Image Segmentation with Keras in Python.jpg.pdf" },
+        { title: "U-Net: Image Segmentation with U-Net", provider: "Udemy", date: "May 2023", link: "certificates/UNet - Image Segmentation with UNet.jpg.pdf" },
+        { title: "Computer Vision and Image Processing", provider: "IIT Guwahati (NPTEL)", link: "/certificates/Computer Vision and Image Processing - Fundamentals and Applications (1).jpg" },
+        { title: "Deep Learning for Visual Computing", provider: "IIT Kharagpur (NPTEL)", score: "68% Elite Score", link: "/certificates/Deep Learning for Visual Computing.jpg" },
+        { title: "Introduction to Machine Learning", provider: "IIT Madras (NPTEL)", link: "/certificates/Introduction to Machine Learning.jpg" },
+        { title: "Research Methodology", provider: "IIT Madras (NPTEL)", link: "/certificates/Research Methodology.jpg" },
+        { title: "NPTEL BELIEVER Award", provider: "NPTEL", date: "April 2022", link: "/certificates/NPTEL.jpeg" },
     ];
 
     return (
@@ -91,21 +25,7 @@ export default function Development() {
             </header>
 
             <div className="dev-grid">
-                <section className="column">
-                    <h2 className="sub-title">Faculty Development & Workshops</h2>
-                    <div className="list-container">
-                        {fdps.map((item, index) => (
-                            <div key={index} className="dev-card card">
-                                <div className="card-header">
-                                    <span className="type-badge">{item.type}</span>
-                                    <span className="date">{item.date}</span>
-                                </div>
-                                <h3>{item.title}</h3>
-                                <p className="organizer">Organized by {item.organizer}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+
 
                 <section className="column">
                     <h2 className="sub-title">Courses & Certifications</h2>
@@ -118,6 +38,11 @@ export default function Development() {
                                 </div>
                                 <h3>{item.title}</h3>
                                 <p className="organizer">{item.provider}</p>
+                                {item.link && (
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="cert-link">
+                                        Click to access
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -214,6 +139,21 @@ export default function Development() {
            margin-top: 0.5rem;
         }
         
+        .cert-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .cert-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
            .dev-grid {
              grid-template-columns: 1fr;

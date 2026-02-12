@@ -22,10 +22,7 @@ export default function About() {
 
           <div className="timeline-list">
             <div className="timeline-card card">
-              <div className="meta">
-                <span className="year">Expected 2025</span>
-                <span className="badge">Thesis Submitted</span>
-              </div>
+
               <h3>Ph.D. in Computer Science Engineering</h3>
               <p className="institution">SIMATS Engineering, SIMATS University, Chennai</p>
             </div>
@@ -33,7 +30,7 @@ export default function About() {
             <div className="timeline-card card">
               <div className="meta">
                 <span className="year">2013</span>
-                <span className="grade">First Class (66%)</span>
+
               </div>
               <h3>M.E. in Signal Processing</h3>
               <p className="institution">Rajagiri School of Engineering, Cochin (MG University)</p>
@@ -42,7 +39,7 @@ export default function About() {
             <div className="timeline-card card">
               <div className="meta">
                 <span className="year">2009</span>
-                <span className="grade">First Class (70%)</span>
+
               </div>
               <h3>B.E. in Electronics & Communication</h3>
               <p className="institution">IHRD Govt. Engineering, Cherthala (Cochin University)</p>
@@ -61,7 +58,7 @@ export default function About() {
             <div className="experience-card card">
               <div className="role-header">
                 <h3>Junior Research Fellow (JRF)</h3>
-                <span className="duration">Nov 2021 – Present</span>
+                <span className="duration">Nov 2021 – Nov 2024</span>
               </div>
               <p className="institution">SIMATS Engineering, SIMATS University</p>
               <ul className="job-details">
@@ -74,7 +71,7 @@ export default function About() {
             <div className="experience-card card">
               <div className="role-header">
                 <h3>Assistant Professor</h3>
-                <span className="duration">Previous</span>
+                <span className="duration">Current</span>
               </div>
               <p className="institution">Chennai Institute of Technology</p>
               <p className="job-summary">Focusing on AI curriculum and student research mentorship.</p>

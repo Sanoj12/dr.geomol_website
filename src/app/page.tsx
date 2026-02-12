@@ -12,7 +12,7 @@ export default function Home() {
           <div className="hero-text">
             <h1 className="title">Dr.Geomol George</h1>
             <p className="subtitle">
-              Assistant Professor | Researcher in <span className="highlight">AI</span> & <span className="highlight">Underwater Object Detection</span>
+              Assistant Professor | AI Research | Computer Vision | Intelligent Systems | Real-World Impact
             </p>
             <p className="institution">Chennai Institute of Technology</p>
 
@@ -65,10 +65,7 @@ export default function Home() {
       <section className="container section-spacing">
         <h2 className="section-title">Quick Highlights</h2>
         <div className="grid-highlights">
-          <div className="card highlight-card">
-            <h3>Ph.D. Scholar</h3>
-            <p>Computer Science Engineering (Submitted Thesis)</p>
-          </div>
+
           <div className="card highlight-card">
             <h3>Research Focus</h3>
             <p>Deep Learning, Underwater Image Segmentation, Marine Object Detection</p>
