@@ -19,9 +19,7 @@ export default function Development() {
         <div className="container" style={{ paddingBottom: "4rem" }}>
             <header className="page-header">
                 <h1 className="section-title">Professional Development</h1>
-                <p className="lead">
-                    Continuous learning through Faculty Development Programs, Workshops, and Certifications.
-                </p>
+               
             </header>
 
             <div className="dev-grid">

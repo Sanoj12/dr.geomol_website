@@ -6,7 +6,7 @@ export default function Contact() {
       <header className="page-header">
         <h1 className="section-title">Get in Touch</h1>
         <p className="lead">
-          Feel free to reach out for research collaborations, academic queries, or just to say hello.
+          Feel free to reach out for research collaborations,research assistance, academic queries, or just to say hello.
         </p>
       </header>
 
